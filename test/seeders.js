@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 const { WordObject } = require('../wordtypes/models');
+const { Preposition } = require('../prepositions/models');
 
 const seeders = {
 
@@ -36,7 +37,7 @@ const seeders = {
         }
     },
 
-// SEEDERS FOR WORDTYPES
+// SEEDERS FOR WORDTYPES and PREPOSITIONS
 
     seedSixUsers: function() {
         console.log('Seeding six users\' data...');
@@ -92,12 +93,31 @@ const seeders = {
                 }
             }
 
-        seedData.push(wordObj);
+            seedData.push(wordObj);
 
         }
         
-        console.log('Seeding six Words\' data...');
+        console.log('Seeding six words\' data...');
         return WordObject.insertMany(seedData);
+    
+    },
+
+    generateAndSeedPrepositionsData: function(users) {
+
+        const seedData = [];
+
+        for (let i = 0; i < 6; i++) {
+            let prepObj = {
+                    user: users[i]._id,
+                    sentence: faker.lorem.sentence(),
+                    answer: faker.lorem.word()
+                }
+
+            seedData.push(prepObj);
+        }
+        
+        console.log('Seeding six Words\' data...');
+        return Preposition.insertMany(seedData);
     
     }
 

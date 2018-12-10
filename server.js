@@ -10,6 +10,7 @@ const {PORT, CLIENT_ORIGIN, DATABASE_URL } = require('./config');
 const userRouter = require('./users/router');
 const authRouter = require('./auth/router');
 const wordtypesRouter = require('./wordtypes/router');
+const prepositionsRouter = require('./prepositions/router');
 const { localStrategy, jwtStrategy } = require('./auth/strategies');
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(cors({
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
 app.use('/wordtypes', wordtypesRouter);
+app.use('/prepositions', prepositionsRouter);
 
 app.use('*', (req, res) => {
     return res.status(404).json({message: 'Not Found'});
