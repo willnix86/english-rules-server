@@ -162,9 +162,9 @@ router.put('/:id', jsonParser, (req, res) => {
 // DELETE A USER BY ID (AND REMOVE ASSOCIATED GAMES ALONG WITH IT)
 router.delete('/:id', (req, res) => {
 
-    let deleteUser = async () => {
+    const deleteUser = async () => {
         //add in games to delete
-        let user = await User.findByIdAndRemove(req.params.id);
+        let user = await User.findOneAndDelete(req.params.id);
         console.log(`Deleted user with id (${req.params.id})`);
         return res.status(204).end();
     }

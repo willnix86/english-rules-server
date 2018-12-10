@@ -11,8 +11,7 @@ router.get('/protected/userId/:id', jwtAuth, (req, res) => {
     
     const findWordsByUser = async () => {
         
-        let words = WordObject.find({$and: [ {user: req.params.id} ]}, '-__v');
-
+        let words = await WordObject.find({ user: req.params.id }, '-__v');
         return res.json(words);
 
     };
@@ -26,7 +25,7 @@ router.get('/protected/userId/:id', jwtAuth, (req, res) => {
 
 // CREATE A NEW WORD OBJECT
 router.post('/', jsonParser, (req, res) => {
-    const requiredFields = ['user', 'word', 'wordType', 'target', 'answer'];
+    const requiredFields = ['user', 'word', 'wordType'];
     const missingField = requiredFields.find(field => !(field in req.body));
 
     if (missingField) {
@@ -50,45 +49,20 @@ router.post('/', jsonParser, (req, res) => {
     }
 
     createWordObject().catch(err => res.status(500).send({message: 'Internal server error. Please try again later.'}));
-    
+
 });
 
-// EDIT A MEETING BY ID
-router.put('/:id', jsonParser, (req, res) => {
-
-    if (!(req.params.id && req.body.id === req.body.id)) {
-        let message = 'Request path id and request body id must match';
-        console.error(message);
-        res.status(400).send(message);
-    }
-
-    let updated = {};
-    const updatableFields = ['host', 'person', 'date'];
-
-    updatableFields.forEach(field => {
-        if (field in req.body) {
-            updated[field] = req.body[field];
-        }
-    });
-
-    Meeting.findOneAndUpdate(
-        {_id: req.params.id},
-        {$set: updated},
-        {new: true}
-    )
-    .then(updatedMeeting => res.status(204).end())
-    .catch(err => res.status(500).json({message: 'Something went wrong.'}))
-})
-
-// DELETE A MEETING BY ID
+// DELETE A WORD OBJECT BY ID
 router.delete('/:id', (req, res) => {
-    Meeting.findByIdAndRemove(req.params.id)
-    .then(() => {
-        console.log(`Deleted meeting with id (${req.params.id})`);
-        res.status(204).end();
-        })
-    .catch(err => res.status(500).json({message: 'Internal server error.'}));
-});
 
+    const deleteWordObject = async () => {
+        let word = await WordObject.findOneAndDelete(req.params.id);
+        console.log(`Deleted Word Object with id (${req.params.id})`);
+        return res.status(204).end();
+    };
+    
+    deleteWordObject().catch(err => res.status(500).json({message: 'Internal server error.'}));
+
+});
 
 module.exports = router;

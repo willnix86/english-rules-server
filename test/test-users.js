@@ -65,7 +65,7 @@ describe('Users API Resource', function() {
                 .set('Authorization', `Bearer ${token}`); 
 
             res.should.have.status(200);
-            res.body.id.should.equal(id.toString());
+            res.body.id.should.equal("" + id);
             res.body.should.be.a('object');
             res.body.should.include.keys('id', 'firstName', 'lastName', 'username');
         });
@@ -151,7 +151,7 @@ describe('Users API Resource', function() {
         it('should remove correct user from database', async function() {
             let id;
             let token;
-            let user = await User.findOne()
+            let user = await User.findOne();
             id = user.id;
             token = jwt.sign({user}, config.JWT_SECRET, {
                 subject: user.username,
