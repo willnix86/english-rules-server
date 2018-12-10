@@ -144,7 +144,7 @@ describe('Users API Resource', function() {
             user.lastName.should.equal(updateData.lastName);
 
             });
-        });
+    });
 
     // DELETE ENDPOINTS
     describe('DELETE endpoints', function() {
