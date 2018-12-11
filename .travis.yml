@@ -6,6 +6,6 @@ deploy:
   provider: heroku
   api_key:
     secure: 0T9jDvtUNm1xltg1CBbCZtUadcBGFFMQ1ZLtuTN/h4tVQ1tDpc6t4wTkEVEkL+7I9X0k0EGjmn4/ntZt0RmpklpNuZfdL62P97Al7HSy+WHb/Pc2G/Bps3K2FRIATNpbpKWOiBZKEpktUnaWOdQBtWYWsH5pfZvYhGkipq/7dfJCC5UYBCHrBOnGQpIMp0rVVyZ5peMcveLebj620Ss8WCW97aQPc/7uxGaYdq+T6fEwl4c1ht1dlhvPgm61qTpBFIvtdH1dWjzHwIOyAxPrXDeg38dZ7yQxBl+bmeIAYyuzz54KV3hmWT/XlpRU6HVCszpWvw2DXGEcTnrTaCzxxGwPE+sfiTQKLTkx1BzGMO+b1vp4YFOQn2XSqsoYyoieMsyThgsCSA/e6pyYJQ7W49Qs7nK5+bOTd1uh53FUwECdwR1vZYTdgVkfyIk4vAJboLlbxG3o/DOXoSdPHPcxkr1j2rMuzs/OHYLOgx3Bl6uwqMxAW6LQQmcG+gflS7wXEVEyiovzeKFS8ROj4+S5+8AN6uCQt4ExwuAmv/d3lA57nmH51AMTts6Rx2tDTh7uIhRLZyYsuCseYdb+5ZTwiPHfKIN2AFAgXGnAICUJJNvDLFUDHB2S2GB00BmdmFkEAWveJBaISBQeNnF0GbRN4qR8UPb/T9ugNwdIauryN28=
-  app: pacific-retreat-23093
+  app: english-rules
   on:
     repo: willnix86/english-rules-server
