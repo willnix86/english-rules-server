@@ -9,6 +9,7 @@ const jwtAuth = passport.authenticate('jwt', {session: false });
 
 // CREATE A NEW USER
 router.post('/', jsonParser, (req, res) => {
+
     const requiredFields = ['username', 'password'];
     const missingField = requiredFields.find(field => !(field in req.body));
 
@@ -97,6 +98,7 @@ router.post('/', jsonParser, (req, res) => {
             });
         }
         let hash = await User.hashPassword(password);
+
         let user = await User.create({username,
             password: hash,
             firstName,

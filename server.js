@@ -16,13 +16,20 @@ const { localStrategy, jwtStrategy } = require('./auth/strategies');
 const app = express();
 mongoose.Promise = global.Promise;
 
+app.use(morgan("common"));
+
+var corsOptions = {
+    origin: CLIENT_ORIGIN,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
+    optionsSuccessStatus: 200,
+}
+
+app.options('*', cors(corsOptions))
+app.use(cors(corsOptions));
+
 passport.use(localStrategy);
 passport.use(jwtStrategy);
-
-app.use(morgan("common"));
-app.use(cors({
-    origin: CLIENT_ORIGIN
-}));
 
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
