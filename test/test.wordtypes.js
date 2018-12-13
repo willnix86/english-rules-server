@@ -52,7 +52,7 @@ describe('WordTypes API Resource', function() {
                     algorithm: 'HS256'
                     });
             let res = await chai.request(app)
-                .get(`/wordtypes/protected/userId/${user._id}`)
+                .get(`/wordtypes/protected/user/${user._id}`)
                 .set('Authorization', `Bearer ${token}`);
 
             res.should.have.status(200);

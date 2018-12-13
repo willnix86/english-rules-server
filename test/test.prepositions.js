@@ -52,7 +52,7 @@ describe('Prepositions API Resource', function() {
                     algorithm: 'HS256'
                     });
             let res = await chai.request(app)
-                .get(`/prepositions/protected/userId/${user._id}`)
+                .get(`/prepositions/protected/user/${user._id}`)
                 .set('Authorization', `Bearer ${token}`);
 
             res.should.have.status(200);
