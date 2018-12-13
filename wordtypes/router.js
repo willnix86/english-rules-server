@@ -7,7 +7,7 @@ const passport = require('passport');
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
 // GET WORD OBJECTS BY USER ID
-router.get('/protected/userId/:id', jwtAuth, (req, res) => {
+router.get('/protected/user/:id', jwtAuth, (req, res) => {
     
     const findWordsByUser = async () => {
         
