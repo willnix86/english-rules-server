@@ -37,7 +37,7 @@ app.use('/wordtypes', wordtypesRouter);
 app.use('/prepositions', prepositionsRouter);
 
 app.use('*', (req, res) => {
-    return res.status(404).json({message: 'Not Found'});
+    return res.status(404).json({message: `Not Found. Server listening on ${CLIENT_ORIGIN}`});
 });
 
 let server;
@@ -53,7 +53,7 @@ function runServer(databaseURL, port = PORT) {
                 }
                 server = app
                 .listen(port, () => {
-                    console.log(`Your app is listening on port ${port} and ${CLIENT_ORIGIN}`);
+                    console.log(`Your app is listening on port ${port}`);
                     resolve();
                 })
                 .on('error', err=> {
