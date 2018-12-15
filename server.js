@@ -18,15 +18,11 @@ mongoose.Promise = global.Promise;
 
 app.use(morgan("common"));
 
-var corsOptions = {
-    origin: CLIENT_ORIGIN,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type,Authorization',
-    optionsSuccessStatus: 200,
-}
-
-app.options('*', cors(corsOptions))
-app.use(cors(corsOptions));
+app.use(
+    cors({
+        origin: CLIENT_ORIGIN
+    })
+);
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
