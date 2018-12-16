@@ -50,17 +50,28 @@ router.post('/', jsonParser, (req, res) => {
 
 });
 
-// DELETE A WORD OBJECT BY ID
+// DELETE A PREPOSITION BY ID
 router.delete('/:id', (req, res) => {
 
     const deletePreposition = async () => {
-        let sentence = await Preposition.findOneAndDelete(req.params.id);
+        let sentence = await Preposition.findOneAndDelete({_id: req.params.id});
         console.log(`Deleted Word Object with id (${req.params.id})`);
         return res.status(204).end();
     };
     
     deletePreposition().catch(err => res.status(500).json({message: 'Internal server error.'}));
+});
 
+// DELETE ALL PREPOSITIONS BY USER
+router.delete('/user/:id', (req, res) => {
+
+    const deleteAllPrepositions = async () => {
+        await Preposition.remove({ user: req.params.id });
+        console.log(`Deleted Word Objects with user (${req.params.id})`);
+        return res.status(204).end();
+    };
+    
+    deleteAllPrepositions().catch(err => res.status(500).json({message: 'Internal server error.'}));
 });
 
 module.exports = router;

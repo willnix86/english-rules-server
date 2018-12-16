@@ -56,7 +56,7 @@ router.post('/', jsonParser, (req, res) => {
 router.delete('/:id', (req, res) => {
 
     const deleteWordObject = async () => {
-        let word = await WordObject.findOneAndDelete(req.params.id);
+        await WordObject.findOneAndDelete({_id: req.params.id});
         console.log(`Deleted Word Object with id (${req.params.id})`);
         return res.status(204).end();
     };
@@ -64,5 +64,18 @@ router.delete('/:id', (req, res) => {
     deleteWordObject().catch(err => res.status(500).json({message: 'Internal server error.'}));
 
 });
+
+// DELETE ALL WORD OBJECTS BY USER
+router.delete('/user/:id', (req, res) => {
+
+    const deleteAllWordObjects = async () => {
+        await WordObject.remove({ user: req.params.id });
+        console.log(`Deleted Word Objects with user (${req.params.id})`);
+        return res.status(204).end();
+    };
+    
+    deleteAllWordObjects().catch(err => res.status(500).json({message: 'Internal server error.'}));
+});
+
 
 module.exports = router;
