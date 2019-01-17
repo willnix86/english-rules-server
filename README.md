@@ -52,21 +52,21 @@ Screenshots:
 
 ### Desktop
 
-![Screenshot of the 'English Rules' Landing Page](/public/homepage.png)
+![Screenshot of the 'English Rules' Landing Page](/read-me-imgs/homepage.png)
 
-![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png)
+![Screenshot of the 'English Rules' Exercises Page](/read-me-imgs/exercisespage.png)
 
-![Screenshot of the 'English Rules' Customization Page](/public/editpage.png)
+![Screenshot of the 'English Rules' Customization Page](/read-me-imgs/editpage.png)
 
-![Screenshot of the 'English Rules' Game Page](/public/game.png)
+![Screenshot of the 'English Rules' Game Page](/read-me-imgs/game.png)
 
 
 ### Mobile
 
-![Screenshot of the 'English Rules' Mobile Landing Page](/public/home-mobile.png)
+![Screenshot of the 'English Rules' Mobile Landing Page](/read-me-imgs/home-mobile.png)
 
-![Screenshot of the 'English Rules' Mobile Exercises Page](/public/exercises-mobile.png)
+![Screenshot of the 'English Rules' Mobile Exercises Page](/read-me-imgs/exercises-mobile.png)
 
-![Screenshot of the 'English Rules' Mobile Customization Page](/public/edit-mobile.png)
+![Screenshot of the 'English Rules' Mobile Customization Page](/read-me-imgs/edit-mobile.png)
 
-![Screenshot of the 'English Rules' Mobile Game Page](/public/game-mobile.png)
+![Screenshot of the 'English Rules' Mobile Game Page](/read-me-imgs/game-mobile.png)
